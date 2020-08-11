@@ -1,0 +1,11 @@
+@import "./variables";
+@import "./font-awesome/font-awesome.scss";
+@import "./bootstrap/bootstrap.scss";
+@import "./_typography";
+@import "./page";
+
+
+// keep adding files to this in the styles.scss too forrm your "libraries" package. 
+// i include my basic page / record tables / toolbar etc to this. basicaly the shared styles
+// include it as /static/css/styles.css
+// the gule file takes any index.scss and outputs it as the folder name if the folder name "looks" like a scss file

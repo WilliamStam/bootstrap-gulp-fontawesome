@@ -1,0 +1,29 @@
+{
+    "name": "my-awesome-website",
+    "version": "0.0.1",
+    "private": true,
+    "minimum-stability": "dev",
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.14.0",
+        "bootstrap": "^4.5.0",
+        "jquery": "^3.5.1"
+    },
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^7.0.1",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-cli": "^2.3.0",
+        "gulp-concat": "latest",
+        "gulp-copy": "latest",
+        "gulp-postcss": "latest",
+        "gulp-rename": "latest",
+        "gulp-run-command": "latest",
+        "gulp-sass": "^4.1.0",
+        "gulp-sourcemaps": "latest",
+        "gulp-tap": "latest",
+        "postcss": "^7.0.32",
+        "postcss-import": "latest",
+        "postcss-nested": "^4.2.3",
+        "postcss-simple-vars": "latest"
+    }
+}
