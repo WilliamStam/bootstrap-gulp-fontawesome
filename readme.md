@@ -4,6 +4,10 @@ have node installed and running. we use node for our build process
 
 verify with `npm --version`
 
+install gulp cli `npm install --global gulp-cli`
+
+verify with `gulp version`
+
 # setup
 
 from a cmd/terminal run `npm install` from the root folder (where `package.json` lives)
