@@ -16,10 +16,10 @@ var replace_dist = function (folder) {
 }
 
 gulp.task('files.scss', () => {
-    return gulp.src(['./app/assets/css/**/*.scss', '!./app/assets/css/**/*.scss/*/**'], { nodir: true, base: '.' })
+    return gulp.src(['./assets/css/**/*.scss', '!./assets/css/**/*.scss/*/**'], { nodir: true, base: '.' })
         .pipe(sass().on('error', sass.logError))
         .pipe(rename(function (file) {
-            file.dirname = file.dirname.replace('assets' + path.sep + 'css', 'static' + path.sep + 'css');
+            file.dirname = file.dirname.replace('assets' + path.sep + 'css', 'public' + path.sep + 'css');
             console.log(" > " + file.dirname + path.sep + file.basename + file.extname)
         }))
         .pipe(gulp.dest("."));
@@ -27,10 +27,10 @@ gulp.task('files.scss', () => {
 
 
 gulp.task('folders.scss', () => {
-    return gulp.src('./app/assets/css/**/*.scss/index.scss', { base: '.' })
+    return gulp.src('./assets/css/**/*.scss/index.scss', { base: '.' })
         .pipe(sass().on('error', sass.logError))
         .pipe(rename(function (file) {
-            folder = file.dirname.replace('assets' + path.sep + 'css', 'static' + path.sep + 'css').split(path.sep)
+            folder = file.dirname.replace('assets' + path.sep + 'css', 'public' + path.sep + 'css').split(path.sep)
             name = folder.pop()
             bname = name.split(".")
             bname.pop()
@@ -48,23 +48,23 @@ gulp.task('folders.scss', () => {
 });
 
 gulp.task('files.js', () => {
-    return gulp.src(['./app/assets/js/**/*.js', '!./app/assets/js/**/*.js/*/**'], { nodir: true, base: '.' })
+    return gulp.src(['./assets/js/**/*.js', '!./assets/js/**/*.js/*/**'], { nodir: true, base: '.' })
 
         .pipe(rename(function (file) {
-            file.dirname = file.dirname.replace('assets' + path.sep + 'js', 'static' + path.sep + 'js');
+            file.dirname = file.dirname.replace('assets' + path.sep + 'js', 'public' + path.sep + 'js');
             console.log(" > " + file.dirname + path.sep + file.basename + file.extname)
         }))
         .pipe(gulp.dest("."));
 });
 
 gulp.task('folders.js', () => {
-    return gulp.src('./app/assets/js/**/*.js/index.js', { base: '.' })
+    return gulp.src('./assets/js/**/*.js/index.js', { base: '.' })
         .pipe(tap(function (file, t) {
             files_to_concat = JSON.parse(file.contents.toString())
 
             folder = file.dirname
             outputFilename = folder.split(path.sep).pop()
-            outputFolder = folder.replace('assets' + path.sep + 'js', 'static' + path.sep + 'js')
+            outputFolder = folder.replace('assets' + path.sep + 'js', 'public' + path.sep + 'js')
             outputFolder = outputFolder.split(path.sep)
             outputFolder.pop()
             outputFolder = outputFolder.join(path.sep)
@@ -107,11 +107,11 @@ gulp.task('folders.js', () => {
 
 gulp.task('fonts', () => {
     return gulp.src('./node_modules/@fortawesome/fontawesome-free/webfonts/*')
-        .pipe(gulp.dest("./app/static/fonts/"));
+        .pipe(gulp.dest("./public/fonts/"));
 });
 gulp.task('images', () => {
-    return gulp.src('./app/assets/images/*')
-        .pipe(gulp.dest("./app/static/images/"));
+    return gulp.src('./assets/images/*')
+        .pipe(gulp.dest("./public/images/"));
 });
 
 
@@ -120,11 +120,11 @@ gulp.task('build', gulp.parallel('files.scss', 'folders.scss', 'files.js', 'fold
 
 
 gulp.task('watch', () => {
-    gulp.watch(['./app/assets/css/**/*.scss', '!./app/assets/css/**/*.scss/*/**'], gulp.series(['files.scss']));
-    gulp.watch('./app/assets/css/**/*.scss/**/*.scss', gulp.series(['folders.scss']));
-    gulp.watch(['./app/assets/js/**/*.js', '!./app/assets/js/*.js/*/**'], gulp.series(['files.js']));
-    gulp.watch('./app/assets/js/**/*.js/**/*.js', gulp.series(['folders.js']));
-    gulp.watch('./app/assets/images/*', gulp.series(['images']));
+    gulp.watch(['./assets/css/**/*.scss', '!./assets/css/**/*.scss/*/**'], gulp.series(['files.scss']));
+    gulp.watch('./assets/css/**/*.scss/**/*.scss', gulp.series(['folders.scss']));
+    gulp.watch(['./assets/js/**/*.js', '!./assets/js/*.js/*/**'], gulp.series(['files.js']));
+    gulp.watch('./assets/js/**/*.js/**/*.js', gulp.series(['folders.js']));
+    gulp.watch('./assets/images/*', gulp.series(['images']));
 });
 
 

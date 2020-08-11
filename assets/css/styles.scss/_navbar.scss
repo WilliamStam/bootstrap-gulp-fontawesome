@@ -1,0 +1,10 @@
+.navbar {
+    .nav-item {
+        &.active {
+            background: var(--primary);
+            a.nav-link {
+                color:#fff !important;
+            }
+        } 
+    }
+}
