@@ -64,4 +64,8 @@ run `gulp watch` for it to monitor the assets dir, if any file is changed it wil
 
 ### vscode
 
-if you run VS Code then enable automatic folder tasks (ctrl + shift + p -> Tasks: Manage automatic tasks in folder -> enable) and it will run gulp build for you whenever you open the folder
+if you run VS Code then enable automatic folder tasks (ctrl + shift + p -> Tasks: Manage automatic tasks in folder -> enable) and it will run gulp build for you whenever you open the folder. (restart vscode first). now when your file saves (ctrl + s or auto save) it should run (verify in your terminal if you get a 2. Tasks gulp watch)
+
+### powershell
+
+powershell runs in a "i ahte everythone else" mode. to disable it run powershell in admin mode (start -> powershell (right clik -> run as administrator)) and enter `set-executionpolicy remotesigned`
